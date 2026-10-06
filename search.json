@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Something is brewing. Check back soon for updates on my research projects and publications."
+  },
+  {
+    "objectID": "research.html#research-interests",
+    "href": "research.html#research-interests",
+    "title": "Research",
+    "section": "Research interests",
+    "text": "Research interests\n\nTopic 1\nTopic 2\nTopic 3"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Kavishni",
+    "section": "",
+    "text": "I am an economics researcher interested in AI and Behavioural Economics."
+  },
+  {
+    "objectID": "index.html#research",
+    "href": "index.html#research",
+    "title": "Kavishni",
+    "section": "Research",
+    "text": "Research\nSee my research page for current work."
+  },
+  {
+    "objectID": "index.html#writing",
+    "href": "index.html#writing",
+    "title": "Kavishni",
+    "section": "Writing",
+    "text": "Writing\nI also write about economics and related topics on Substack."
+  }
+]
