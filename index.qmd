@@ -1,0 +1,15 @@
+---
+title: "Kavishni"
+---
+
+I am an economics researcher interested in AI and Behavioural Economics.
+
+
+
+## Research
+
+See my [research](research.qmd) page for current work.
+
+## Writing
+
+I also write about economics and related topics on [Substack](https://kavishni.substack.com/).

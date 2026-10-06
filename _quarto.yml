@@ -1,0 +1,29 @@
+project:
+  type: website
+
+website:
+  title: "Kavishni N"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: about.qmd
+        text: About
+    right:
+      - text: Writing
+        href: https://kavishni.substack.com/
+      - text: Subscribe
+        href: https://kavishni.substack.com/subscribe
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+
