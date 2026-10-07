@@ -1,1 +1,208 @@
-/* css styles */
+/* 1. Design tokens — colours match _brand.yml. */
+:root {
+  --paper: #F5F2E9;
+  --ivory: #FCFBF8;
+  --ink: #202822;
+  --forest: #355244;
+  --forest-dark: #243B31;
+  --stone: #5F625D;
+  --sage: #AEBBAA;
+  --clay: #B86F52;
+  --content-wide: 1200px;
+  --content-reading: 720px;
+  --rule: rgba(32, 40, 34, 0.18);
+  --space-small: 1rem;
+  --space-medium: clamp(1.5rem, 3vw, 2.5rem);
+  --space-section: clamp(3rem, 6vw, 5rem);
+  --space-major: clamp(4rem, 8vw, 8rem);
+  --page-gutter: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* 2. Global typography — the brand file supplies the font families. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--forest);
+  font-weight: 400;
+  line-height: 1.15;
+  overflow-wrap: break-word;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
+h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); }
+h4, h5, h6 { font-size: 1.2rem; }
+
+main h2 {
+  margin-top: var(--space-section);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+main h3 { margin-top: var(--space-medium); }
+p, ul, ol { margin-bottom: var(--space-small); }
+
+/* 3. Links and keyboard focus. Underlines make links clear without colour. */
+a {
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.06em;
+  transition: color 180ms ease;
+}
+
+a:hover {
+  color: var(--forest-dark);
+  text-decoration-thickness: 0.1em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--forest);
+  outline-offset: 4px;
+}
+
+/* Match Quarto's more specific navigation selectors. */
+.navbar a:focus-visible,
+.navbar .navbar-toggler:focus-visible,
+.nav-footer a:focus-visible {
+  outline: 3px solid var(--forest);
+  outline-offset: 4px;
+  box-shadow: none;
+}
+
+/* 4. Navigation — retain Quarto's built-in accessible mobile toggle. */
+#quarto-header .navbar {
+  background: var(--paper);
+  box-shadow: none;
+  padding-block: 1rem 0;
+  padding-inline: 0;
+}
+
+.navbar > .navbar-container {
+  width: calc(100% - 2 * var(--page-gutter));
+  max-width: var(--content-wide);
+  margin-inline: auto;
+  padding-inline: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.navbar .navbar-brand {
+  color: var(--forest);
+  font-size: clamp(0.875rem, 3.5vw, 1.0625rem);
+  font-weight: 500;
+  white-space: nowrap;
+  margin-right: 0;
+}
+
+.navbar .navbar-title { white-space: nowrap; }
+
+/* Remove the extra space after the final desktop navigation label. */
+@media (min-width: 992px) {
+  .navbar .navbar-nav .nav-item:last-child .nav-link { padding-right: 0; }
+}
+.navbar .nav-link {
+  color: var(--forest);
+  font-size: 1rem;
+  padding: 0.65rem 0.8rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--forest-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.navbar .navbar-toggler {
+  color: var(--ink);
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+}
+
+/* 5. Global layout. All pages share the same wide canvas. */
+main.content {
+  min-width: 0;
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-major);
+}
+
+#title-block-header { margin-bottom: var(--space-medium); }
+main p, main li { overflow-wrap: break-word; }
+
+/* Leave room for the header when following a section link. */
+main section[id],
+main h2[id] {
+  scroll-margin-top: 7rem;
+}
+
+/* Match every page's text edges to the shared navigation container.
+   Span Quarto's grid so its additional reading-column gutters do not apply. */
+#quarto-content > main.content {
+  grid-column: screen-start / screen-end;
+  width: calc(100% - 2 * var(--page-gutter));
+  max-width: var(--content-wide);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+/* Available for future page layouts without changing their content now. */
+.content-reading { max-width: var(--content-reading); }
+.content-wide { max-width: var(--content-wide); }
+.meta { color: var(--stone); font-size: 0.9rem; }
+.lede { font-size: 1.2rem; }
+hr, .section-rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  opacity: 1;
+  margin-block: var(--space-medium);
+}
+
+/* 6. Footer — only existing, verified destinations. */
+.nav-footer {
+  max-width: var(--content-wide);
+  margin-inline: auto;
+  padding: var(--space-medium) var(--page-gutter);
+  border-top: 1px solid var(--rule);
+  color: var(--stone);
+  background: var(--paper);
+  font-size: 0.9rem;
+  gap: 1rem;
+}
+
+.nav-footer a {
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  display: inline-block;
+  padding-block: 0.5rem;
+}
+
+/* 7. Responsive refinements for shared elements. */
+@media (max-width: 767px) {
+  main.content { padding-top: var(--space-medium); }
+  .navbar .nav-link { padding-block: 0.75rem; }
+  .nav-footer { flex-direction: column; align-items: flex-start; }
+  .nav-footer .nav-footer-left,
+  .nav-footer .nav-footer-right { text-align: left; }
+}
+
+/* 8. Respect the reader's motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

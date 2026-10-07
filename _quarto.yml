@@ -1,18 +1,30 @@
 project:
   type: website
+  # Render website pages, not repository instructions or design documents.
+  render:
+    - "*.qmd"
 
 website:
-  title: "Kavishni N"
+  title: "Kavishni Nanayakkara"
+  site-url: https://kavishni.github.io
+  search: false
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: research.qmd
-        text: Research
-      - href: about.qmd
-        text: About
+    background: light
+    foreground: dark
+    pinned: true
     right:
+      - href: "#research"
+        text: Research
+      # Writing remains on Substack; other links jump to homepage sections.
       - text: Writing
+        href: https://kavishni.substack.com/
+      - href: "#about"
+        text: About
+  page-footer:
+    border: false
+    left: "Kavishni Nanayakkara · Economics Researcher"
+    right:
+      - text: Substack
         href: https://kavishni.substack.com/
       - text: Subscribe
         href: https://kavishni.substack.com/subscribe
@@ -20,10 +32,12 @@ website:
 format:
   html:
     theme:
-      - cosmo
+      - default
       - brand
     css: styles.css
-    toc: true
-
-
-
+    toc: false
+    grid:
+      body-width: 1200px
+      sidebar-width: 0px
+      margin-width: 0px
+      gutter-width: 40px

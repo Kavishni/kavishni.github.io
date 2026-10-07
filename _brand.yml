@@ -1,0 +1,30 @@
+# Shared brand settings. Keep the matching CSS colour tokens in sync.
+color:
+  palette:
+    paper: "#F5F2E9"
+    ivory: "#FCFBF8"
+    ink: "#202822"
+    forest: "#355244"
+    forest-dark: "#243B31"
+    stone: "#5F625D"
+    sage: "#AEBBAA"
+    clay: "#B86F52"
+  background: paper
+  foreground: ink
+  primary: forest
+  secondary: stone
+  link: forest
+
+# Local fonts only: no external font service or additional downloads.
+typography:
+  base:
+    family: "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    size: 1.0625rem
+    line-height: 1.7
+  headings:
+    family: "Newsreader, Georgia, Times New Roman, serif"
+    weight: 400
+    color: forest
+  link:
+    color: forest
+    decoration: underline

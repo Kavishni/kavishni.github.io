@@ -1,11 +1,8 @@
 ---
 title: "Research"
+include-in-header:
+  text: |
+    <meta http-equiv="refresh" content="0; url=./index.html#research">
 ---
 
-Something is brewing. Check back soon for updates on my research projects and publications.
-
-## Research interests
-
-- Topic 1
-- Topic 2
-- Topic 3
+[Continue to the Research section](index.qmd#research).
