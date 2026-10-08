@@ -11,6 +11,34 @@ docs/site-design-spec.md
 
 Treat that document as the authoritative design specification.
 
+## Content source of truth
+
+Factual information about Kavishni and her work is stored in:
+
+content/
+
+Before writing or revising website copy, consult the relevant files there.
+
+Content files are the factual source of truth.
+
+You may:
+- rewrite for clarity;
+- shorten;
+- reorganise;
+- adapt tone to the site's design.
+
+You may not:
+- invent facts;
+- infer credentials;
+- invent publications or research findings;
+- invent talks;
+- invent education or employment;
+- turn tentative interests into claimed expertise.
+
+If information is missing, omit it rather than fabricate it.
+
+Homepage updates must come from content/updates.md.
+
 ## Architecture
 
 This is a Quarto static website.
@@ -85,6 +113,27 @@ When requirements conflict, prioritize:
 8. animation
 
 Animation must never compromise a higher priority.
+
+## Visual character
+
+The site should feel personally authored rather than like a generic
+AI-generated portfolio.
+
+Consult the Personal Web, typography, bracket-link, anti-template and
+signature-graphic requirements in docs/site-design-spec.md before making
+frontend design decisions.
+
+Prefer:
+- typography;
+- ordinary text links;
+- simple HTML;
+- bespoke details;
+- mild idiosyncrasy;
+- a small number of individually designed elements.
+
+Avoid generic component-library and AI-template aesthetics.
+
+Do not directly imitate another researcher's website.
 
 ## Accessibility
 

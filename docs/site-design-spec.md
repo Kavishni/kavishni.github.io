@@ -24,7 +24,7 @@ It should feel intelligent, calm, cultivated, approachable, and distinctive with
 
 ---
 
-# 2. Core Creative Direction
+# 2a. Core Creative Direction
 
 Use a roughly **50/50 balance between academic restraint and editorial sophistication**.
 
@@ -58,7 +58,7 @@ Instead, create a site that feels closer to:
 
 > **an independent literary journal × a contemporary academic profile × a beautifully typeset research notebook**
 
-## Personal Web / Pre-AI Character
+# 2b. Personal Web / Pre-AI Character
 
 The site should retain academic credibility and editorial restraint while
 feeling personally authored, handmade and slightly idiosyncratic.
@@ -67,7 +67,6 @@ Inspiration may come from older personal academic websites and the
 pre-AI-generated personal web.
 
 Desired qualities:
-
 - direct page structure;
 - ordinary but characterful hyperlinks;
 - small signs of personality;
@@ -207,6 +206,8 @@ Do not create alternating colour-block sections everywhere.
 Use for:
 
 - body text;
+- major headings;
+- navigation;
 - primary interface text.
 
 This replaces pure black.
@@ -223,16 +224,13 @@ It contains a subtle green undertone without visibly appearing green.
 Use for:
 
 - links;
-- major headings;
-- site name and navigation;
 - active navigation;
 - focus states;
 - selected editorial details;
 - small graphical marks;
-- the optional signature graphic or interaction.
+- interactive research visual.
 
-Use as a clear but restrained editorial accent. It should be visibly present in
-the typographic hierarchy without becoming the dominant page colour.
+Use sparingly.
 
 This colour has strong contrast against the warm-paper background and may safely carry important link text.
 
@@ -300,6 +298,18 @@ Do not use clay for normal text because contrast is insufficient against the mai
 # 6. Typography
 
 Typography should carry most of the site's personality.
+Avoid defaulting to fashionable product-design sans-serifs such as Inter.
+
+Use three restrained typographic roles:
+
+1. Literary/editorial serif for identity and major headings.
+2. Highly readable text face for prose.
+3. System or monospace face for selected utility links, metadata and
+   compact interface details.
+
+Typography should feel authored rather than template-derived.
+
+Do not turn the entire website into a developer/terminal aesthetic.
 
 ## Primary editorial serif
 
@@ -327,22 +337,22 @@ Alternative serif fonts may be considered only if they preserve this quality.
 
 ---
 
-## Typographic roles
+## Sans-serif
 
-Avoid defaulting to fashionable product-design sans-serifs such as Inter.
+Preferred:
+font to be decided
+Use for:
 
-Use three restrained typographic roles:
+- body copy;
+- navigation;
+- metadata;
+- paper details;
+- dates;
+- links;
+- buttons;
+- captions.
 
-1. Literary/editorial serif for identity and major headings.
-2. Highly readable text face for prose.
-3. System or monospace face for selected utility links, metadata and compact interface details.
-
-Typography should feel authored rather than template-derived.
-
-Do not turn the entire website into a developer/terminal aesthetic.
-
-Newsreader may remain provisionally as the literary/editorial serif. The exact
-final font combination can be refined later.
+The serif/sans contrast should create the site's academic-editorial identity.
 
 ---
 
@@ -351,8 +361,7 @@ final font combination can be refined later.
 Desktop targets:
 
 Homepage display name:
-approximately `clamp(2.5rem, 5vw, 4.5rem)` so it remains distinctive without
-becoming a giant landing-page headline.
+approximately `clamp(3.8rem, 8vw, 7.5rem)` only if layout permits.
 
 Page H1:
 approximately `3.2–4.5rem`.
@@ -382,20 +391,15 @@ Avoid very small text for stylistic purposes.
 
 Use generous but controlled whitespace.
 
-Maximum global content width and shared page canvas:
+Maximum global content width:
 
-`1200px`.
+approximately `1180–1240px`.
 
-The header, its separator rule, page body, section rules, and footer should
-share this width and align to the same left and right edges.
-
-Long-form prose may use a narrower reading column within the shared canvas:
+Primary reading column:
 
 approximately `680–760px`.
 
-Use varied alignment and narrower internal text blocks within the 1200px canvas
-to create editorial rhythm. Keep body text left-aligned and return to a single
-column on small screens.
+Research and list layouts may use wider widths where metadata appears alongside content.
 
 Use CSS `clamp()` where useful for responsive spacing and typography.
 
@@ -419,9 +423,6 @@ Desktop navigation:
 
 **Kavishni Nanayakkara** at left, linking to homepage.
 
-Keep the name on one line. Reduce its size responsively when necessary rather
-than allowing it to wrap.
-
 Right-side navigation:
 
 - Research
@@ -429,10 +430,6 @@ Right-side navigation:
 - Speaking
 - Reading
 - About
-
-The website is a single scrolling page. Research, Speaking, Reading, and About
-link to section anchors on the homepage. Writing is the exception and links
-directly to Substack.
 
 Optional small CV link may eventually appear separately.
 
@@ -444,7 +441,6 @@ Substack subscription can be surfaced within Writing and the footer.
 
 Navbar should:
 
-- remain pinned while the visitor scrolls;
 - use a warm-paper background;
 - remain visually quiet;
 - use small-to-medium typography;
@@ -453,56 +449,13 @@ Navbar should:
 - remain usable by keyboard;
 - collapse cleanly on mobile.
 
-Its thin separator rule should match the 1200px content canvas rather than span
-the full viewport.
-
-Anchor links should scroll smoothly to their sections. Preserve an immediate
-jump for visitors using `prefers-reduced-motion: reduce`.
-
-### Bracket utility links
-
-Use square-bracket links selectively as a recurring personal-web motif.
-
-Examples:
-
-[Email]
-
-[GitHub]
-
-[LinkedIn]
-
-[Substack]
-
-Research actions may use:
-
-[Paper]
-
-[Code]
-
-[Slides]
-
-Use the utility/monospace typeface for these links.
-
-Do not put every hyperlink on the site in brackets.
+Sticky navigation is acceptable if it remains unobtrusive.
 
 ---
 
-# 9. Single-page Homepage
+# 9. Homepage
 
-The homepage is the complete editorial composition and the primary public page
-of the website. Core content appears as sections in one continuous scroll.
-
-Planned section order:
-
-1. Hero
-2. Updates
-3. Research
-4. Speaking
-5. Reading
-6. About
-
-Writing remains an external Substack destination and does not require a local
-page or section.
+The homepage is the main editorial composition.
 
 Use the following hierarchy.
 
@@ -549,54 +502,76 @@ Text should remain dominant.
 
 On mobile, portrait moves underneath or between text sections.
 
-## Updates
+---
 
-Include a compact chronological Updates section sourced from
-`content/updates.md`.
+# 10. Signature Research Interaction
 
-It may contain genuine research, writing, speaking or professional updates.
+Include a single optional interactive graphical element inspired conceptually by orbital/gravitational systems.
 
-Keep presentation simple:
-date/year + concise text + relevant link where applicable.
+This should be the **only notable animated component on the site**.
 
-It should feel like a personal academic log, not a social-media feed.
+Concept:
+
+At the centre:
+
+**AI × Human Behaviour**
+
+Around it, a limited number of conceptual labels or abstract nodes.
+
+Possible initial labels:
+
+- Economics
+- AI
+- Behaviour
+- Decision-making
+
+Do not add unverified specialist research topics.
+
+### Behaviour
+
+Animation should be extremely subtle.
+
+Use:
+
+- slow orbital movement;
+- slight hover displacement;
+- gentle easing;
+- very limited cursor influence.
+
+Do not use:
+
+- glowing particles;
+- star fields;
+- literal planets;
+- dramatic solar-system graphics;
+- 3D;
+- WebGL unless absolutely necessary;
+- strong physics effects;
+- constant high-speed movement.
+
+Preferred implementation:
+
+**SVG + CSS + small vanilla JavaScript file.**
+
+The visual should feel like a conceptual research diagram, not a game.
+
+### Accessibility
+
+If:
+
+`prefers-reduced-motion: reduce`
+
+then disable orbital motion entirely.
+
+The component should become an attractive static research diagram.
+
+All concepts should remain readable without hover.
+
+The site must remain fully functional without JavaScript.
 
 ---
 
-# 10. Signature Personal Graphic or Interaction
-
-The site may include one signature personal graphic or interaction. It should
-add authorship and character without competing with the research content.
-
-Possibilities include:
-
-- custom illustration;
-- conceptual research diagram;
-- light interactive drawing;
-- print/pixel-inspired graphic;
-- subtle research-related object;
-- orbit concept.
-
-The orbit is one possible direction, not the predetermined solution. Do not add
-unverified specialist research topics to any conceptual graphic.
-
-Keep the implementation lightweight:
-
-- use minimal vanilla JavaScript;
-- do not add a heavy library;
-- prefer HTML, CSS, SVG or canvas as appropriate;
-- make the experience complete without JavaScript;
-- keep all essential labels or meaning available without hover;
-- support `prefers-reduced-motion: reduce` with a static presentation;
-- include only one major interactive feature across the site.
-
-Any motion should be slow, subtle and secondary. Avoid glowing particles, star
-fields, dramatic 3D effects, strong physics, constant high-speed movement and
-game-like interaction.
-
----
-
-# 11. Research Section
+# 11. Selected Research Section
 
 Immediately after the introductory portions, show a curated research section.
 
@@ -625,8 +600,9 @@ Use horizontal rules between items.
 
 If actual papers do not yet exist, use restrained placeholder structure rather than inventing projects.
 
-Do not include a “View all research” link unless a separate research archive is
-introduced later. The homepage section is the canonical research presentation.
+Include:
+
+**View all research →**
 
 ---
 
@@ -639,7 +615,7 @@ Acceptable uses:
 - affiliation in hero;
 - short biography;
 - one carefully selected image;
-- About section.
+- About page.
 
 Do not:
 
@@ -663,14 +639,33 @@ One image is sufficient.
 
 ---
 
-# 13. Writing Destination
+# 13. Writing Section
 
 Substack remains the canonical publishing platform.
 
-The Writing item in the pinned header should link directly to Substack. Do not
-create a local Writing page in the initial implementation.
+The website should curate selected or recent writing rather than duplicate the full publication system.
 
-The footer may also provide restrained Substack and Subscribe text links.
+Homepage:
+
+display approximately 3 selected essays.
+
+Each entry:
+
+**Essay title**
+
+Short standfirst.
+
+Date.
+
+`Read →`
+
+Writing page:
+
+- short introduction;
+- curated essays;
+- optional categories only if useful;
+- prominent but restrained link to Substack;
+- optional Subscribe link.
 
 No newsletter marketing language.
 
@@ -680,9 +675,9 @@ No intrusive subscription banner.
 
 ---
 
-# 14. Speaking Section
+# 14. Speaking Page
 
-Create a Speaking section within `index.qmd` when verified content is supplied.
+Create `speaking.qmd`.
 
 Purpose:
 
@@ -712,9 +707,9 @@ Do not fabricate engagements.
 
 ---
 
-# 15. Reading Section
+# 15. Reading Page
 
-Create a Reading section within `index.qmd` when verified content is supplied.
+Create `reading.qmd`.
 
 This should feel like an intellectual notebook, not Goodreads.
 
@@ -740,9 +735,9 @@ Manual curation is preferred.
 
 ---
 
-# 16. About Section
+# 16. About Page
 
-Create a sophisticated but concise biography section within `index.qmd`.
+Create a sophisticated but concise biography.
 
 Hierarchy:
 
@@ -820,15 +815,14 @@ Allowed:
 - subtle link underline transitions;
 - modest colour transitions;
 - slight opacity transitions;
-- smooth scrolling between homepage sections;
-- the optional signature graphic or interaction;
+- research orbit interaction;
 - very mild image hover where useful.
 
 Transition durations:
 
 approximately `150–300ms` for interface states.
 
-The optional signature interaction may use considerably slower movement.
+Research orbit may use considerably slower movement.
 
 Avoid entrance animations for every section.
 
@@ -843,9 +837,6 @@ No animated navbar.
 No continuously moving decorative text.
 
 No auto-playing visual media.
-
-Smooth scrolling must use native browser behaviour where possible. Disable it
-when `prefers-reduced-motion: reduce` is active.
 
 ---
 
@@ -891,7 +882,6 @@ Breakpoints should be based on layout needs rather than device brands.
 - asymmetric editorial compositions;
 - occasional two-column layouts;
 - portrait alongside hero text;
-- one shared 1200px canvas for the header and homepage sections;
 - generous whitespace.
 
 ### Tablet
@@ -905,7 +895,7 @@ Breakpoints should be based on layout needs rather than device brands.
 - predominantly single-column;
 - images appear beneath relevant text;
 - navigation collapses;
-- the optional signature interaction becomes simplified or static;
+- orbital interaction becomes simplified or static;
 - generous side padding;
 - no horizontal scrolling;
 - headings must not overflow viewport.
@@ -938,27 +928,21 @@ Suggested source structure:
 ├── _brand.yml
 ├── styles.css
 ├── index.qmd
-├── research.qmd       # optional legacy redirect to /#research
-├── about.qmd          # optional legacy redirect to /#about
-├── content/
-│   └── updates.md
+├── research.qmd
+├── writing.qmd
+├── speaking.qmd
+├── reading.qmd
+├── about.qmd
 ├── assets/
 │   ├── images/
 │   │   ├── portrait/
 │   │   ├── editorial/
 │   │   └── speaking/
 │   └── js/
-│       └── signature-interaction.js
+│       └── research-orbit.js
 └── includes/
     └── optional reusable HTML fragments
 ```
-
-`index.qmd` contains the public hero and all internal content sections.
-Standalone legacy pages may remain only as lightweight redirects so existing
-URLs do not break. Writing links directly to Substack.
-
-The Updates section should draw from `content/updates.md` so chronological
-entries remain separate from page layout and can be edited plainly.
 
 Do not introduce unnecessary build tools.
 
@@ -1016,19 +1000,13 @@ Configure:
 - optional custom JavaScript;
 - sensible page title behaviour.
 
-Navigation should use homepage section anchors for internal content and a
-normal external URL for Writing. Keep the navbar pinned. When Quarto rewrites
-an anchor as a page URL, use a small progressive enhancement to normalise it to
-a same-page anchor so the browser can scroll without reloading.
-
 Disable unnecessary UI.
 
 Do not expose Quarto's default visual language more than necessary.
 
 Do not show a table of contents globally by default.
 
-Do not add a table of contents to the single-page homepage. The pinned section
-navigation provides the primary wayfinding.
+TOC may be enabled selectively on long research/writing pages.
 
 Do not add site search initially unless the amount of content later justifies it.
 
@@ -1046,14 +1024,14 @@ Suggested sections:
 3. Links and focus states
 4. Navigation
 5. Layout primitives
-6. Homepage hero and single-page sections
+6. Homepage hero
 7. Editorial section headers
 8. Research lists
-9. External Writing link treatment
-10. Speaking section
-11. Reading section
+9. Writing lists
+10. Speaking lists
+11. Reading layout
 12. Images and captions
-13. Signature graphic or interaction
+13. Research orbit
 14. Footer
 15. Responsive breakpoints
 16. Reduced-motion rules
@@ -1082,8 +1060,6 @@ Small contextual label such as:
 
 `SELECTED RESEARCH`
 
-Use this selectively rather than above every section.
-
 ### `.section-rule`
 
 Thin horizontal rule.
@@ -1099,11 +1075,6 @@ Dates, affiliations and publication types.
 ### `.text-link`
 
 Text + arrow navigation.
-
-### `.utility-link`
-
-Optional system or monospace styling for selective bracket links such as
-`[Email]`, `[Substack]`, `[Paper]` or `[Code]`.
 
 ### `.lede`
 
@@ -1158,12 +1129,10 @@ Economics Researcher
 
 Links:
 
-- `[Email]`
-- `[GitHub]`
-- `[LinkedIn]`
-- `[Substack]`
-
-These are suitable places for the selective bracket utility-link motif.
+- Email
+- GitHub
+- LinkedIn
+- Substack
 
 Optional:
 
@@ -1205,7 +1174,8 @@ Configure:
 - descriptive site title;
 - site description;
 - canonical site URL;
-- a clear homepage title and description;
+- page-specific titles;
+- page descriptions where appropriate;
 - Open Graph metadata;
 - social preview image when an appropriate asset exists.
 
@@ -1269,33 +1239,6 @@ Do **not** implement:
 - large institutional logos;
 - generic academic stock photos.
 
-## Avoid AI-template visual tells
-
-Avoid:
-
-- Inter everywhere;
-- giant hero headline + subtitle + CTA buttons;
-- bento grids;
-- excessive rounded cards;
-- pill-shaped metadata;
-- gradients;
-- glowing blobs;
-- generic icon libraries where text works;
-- repeated eyebrow headings on every section;
-- animated arrows everywhere;
-- excessive entrance animations;
-- overly uniform component-library layouts.
-
-Prefer:
-
-- ordinary links;
-- text-based interfaces;
-- typography;
-- occasional asymmetry;
-- bespoke details;
-- restrained quirks;
-- deliberate but accessible imperfection.
-
 ---
 
 # 32. Desired Emotional Result
@@ -1315,7 +1258,7 @@ Not sterile.
 
 Not corporate.
 
-Not overtly whimsical. Any playfulness should remain restrained and purposeful.
+Not whimsical.
 
 Not trendy for trend's sake.
 
@@ -1349,17 +1292,17 @@ Build in this order:
 1. `_brand.yml`
 2. `_quarto.yml`
 3. global CSS design system
-4. pinned anchor navigation and footer
-5. homepage typography/layout and Updates section
-6. research section
-7. external Writing destination
-8. speaking section
-9. reading section
-10. about section
+4. navigation and footer
+5. homepage typography/layout
+6. research page
+7. writing page
+8. speaking page
+9. reading page
+10. about page
 11. responsive refinements
 12. accessibility audit
 13. photography integration
-14. optional signature graphic or interaction
+14. research-orbit enhancement
 15. metadata/SEO
 16. final mobile testing
 
@@ -1378,21 +1321,11 @@ The implementation is successful when:
 - no PhD status is implied;
 - AI and Human Behaviour is clearly visible as the research focus;
 - typography provides most of the visual identity;
-- typography uses distinct editorial, prose, and selective utility roles without defaulting to Inter everywhere;
 - the palette feels warm, sophisticated and easy on the eyes;
-- green is clearly visible in headings, navigation, and links while feeling refined rather than botanical;
-- the core site works as one continuous scrolling page;
-- internal header links scroll smoothly to their sections without reloading the page;
-- the pinned header and its separator remain visible while scrolling;
-- the header, separator, body sections, and footer share aligned 1200px edges;
-- the header name remains on one line;
-- Writing links directly to Substack;
-- a compact chronological Updates section reads from `content/updates.md`;
-- bracket utility links appear selectively rather than around every link;
-- the design feels personally authored and avoids uniform AI-template visual conventions;
+- green feels refined rather than botanical;
 - imagery is secondary to content;
 - animation is noticeably less prominent than on typical editorial/design portfolio sites;
-- no more than one meaningful interactive feature exists;
+- only one meaningful interactive feature exists;
 - research presentation resembles scholarly/editorial listings rather than product cards;
 - the site remains attractive with JavaScript disabled;
 - reduced-motion users receive a complete static experience;
@@ -1413,10 +1346,13 @@ The implementation should include:
 - `_brand.yml`;
 - revised `_quarto.yml`;
 - revised `styles.css`;
-- `index.qmd` containing all public site sections;
-- `content/updates.md` for chronological homepage updates;
-- optional `research.qmd` and `about.qmd` legacy redirects;
-- optional lightweight `assets/js/signature-interaction.js`;
+- `index.qmd`;
+- `research.qmd`;
+- `writing.qmd`;
+- `speaking.qmd`;
+- `reading.qmd`;
+- `about.qmd`;
+- optional lightweight `assets/js/research-orbit.js`;
 - clearly identified placeholder paths for portrait and editorial photography.
 
 Use placeholders only where user-specific content or images have not yet been provided.
@@ -1424,10 +1360,6 @@ Use placeholders only where user-specific content or images have not yet been pr
 Do not invent research publications, qualifications, talks, educational history, hobbies, awards, or professional experience.
 
 Where information is missing, preserve a clean structure that can be populated later rather than displaying obvious lorem ipsum or fake content.
-
-Do not create separate Writing, Speaking, Reading, or About pages for the
-initial implementation. Link Writing directly to Substack and place the other
-internal content in anchored sections on `index.qmd`.
 
 Preserve the Quarto/GitHub Pages workflow:
 
