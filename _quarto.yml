@@ -14,20 +14,22 @@ website:
     pinned: true
     right:
       - href: "#research"
-        text: Research
+        text: "&#91;Research&#93;"
       # Writing remains on Substack; other links jump to homepage sections.
-      - text: Writing
+      - text: "&#91;Writing&#93;"
         href: https://kavishni.substack.com/
       - href: "#about"
-        text: About
+        text: "&#91;About&#93;"
   page-footer:
     border: false
     left: "Kavishni Nanayakkara · Economics Researcher"
     right:
-      - text: Substack
+      - text: "[Substack]"
         href: https://kavishni.substack.com/
-      - text: Subscribe
-        href: https://kavishni.substack.com/subscribe
+      - text: "[GitHub]"
+        href: https://github.com/Kavishni
+      - text: "[LinkedIn]"
+        href: https://www.linkedin.com/in/kavishni/
 
 format:
   html:

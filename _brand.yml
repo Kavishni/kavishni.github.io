@@ -18,7 +18,7 @@ color:
 # Local fonts only: no external font service or additional downloads.
 typography:
   base:
-    family: "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    family: "Work Sans, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     size: 1.0625rem
     line-height: 1.7
   headings:

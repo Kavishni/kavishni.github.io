@@ -1,5 +1,7 @@
 ---
-title: "Kavishni"
+pagetitle: "Economics Researcher"
+description: "Kavishni Nanayakkara is an economics researcher at Nanyang Technological University, Singapore, interested in AI and human behaviour."
+body-classes: homepage
 include-after-body:
   text: |
     <script>
@@ -14,23 +16,65 @@ include-after-body:
     </script>
 ---
 
-I am an economics researcher interested in AI and Behavioural Economics.
+::: {.hero}
+::: {.hero-identity}
+<p class="eyebrow">Economics Researcher</p>
 
+# Kavishni Nanayakkara {#hero-title .hero-name}
+:::
 
+::: {.hero-introduction}
+<p class="hero-affiliation">Nanyang Technological University, Singapore</p>
+
+<p class="hero-positioning">Exploring AI and human behaviour in the context of economics.</p>
+:::
+:::
 
 ## Research {#research}
 
-Something is brewing. Check back soon for updates on my research projects and publications.
+::: {.section-introduction}
+My research interests sit at the intersection of economics, technology,
+behaviour and wellbeing.
+:::
 
-### Research interests
+::: {.editorial-list .research-interest-list}
+::: {.editorial-item}
+### Behavioural economics and wellbeing
+:::
 
-- Topic 1
-- Topic 2
-- Topic 3
+::: {.editorial-item}
+### AI, labour markets, and the future of work
+:::
 
-## Writing
+::: {.editorial-item}
+### Mental health and subjective wellbeing
+:::
 
-I also write about economics and related topics on [Substack](https://kavishni.substack.com/).
+::: {.editorial-item}
+### Human behaviour and decision-making
+:::
+:::
+
+<!-- Selected research projects will be added only when verified project
+information is available in content/research.md. -->
+
+<!-- Selected writing is omitted because content/writing.md has no entries. -->
+
+## Currently {#currently}
+
+::: {.currently-grid}
+::: {.currently-item}
+<p class="meta">Researching</p>
+
+AI and Human Behaviour
+:::
+
+::: {.currently-item}
+<p class="meta">Working</p>
+
+Research Assistant at Nanyang Technological University, working on AI and economics.
+:::
+:::
 
 ## About {#about}
 
