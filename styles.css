@@ -5,6 +5,7 @@
   --ink: #202822;
   --forest: #355244;
   --forest-dark: #243B31;
+  --link: #4F705C;
   --stone: #5F625D;
   --sage: #AEBBAA;
   --clay: #B86F52;
@@ -16,6 +17,14 @@
   --space-section: clamp(3rem, 6vw, 5rem);
   --space-major: clamp(4rem, 8vw, 8rem);
   --page-gutter: clamp(1rem, 4vw, 2.5rem);
+
+  /* A compact six-step type scale. */
+  --type-body: 1.0625rem;
+  --type-small: 0.9rem;
+  --type-display: clamp(3.3rem, 7vw, 6.25rem);
+  --type-heading: clamp(1.9rem, 3.5vw, 2.8rem);
+  --type-editorial: clamp(1.35rem, 2.5vw, 2rem);
+  --type-detail: 0.82rem;
 }
 
 /* 2. Global typography — the brand file supplies the font families. */
@@ -26,7 +35,7 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-size: 1.0625rem;
+  font-size: var(--type-body);
   line-height: 1.7;
 }
 
@@ -37,10 +46,10 @@ h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
-h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); }
-h4, h5, h6 { font-size: 1.2rem; }
+h1 { font-size: var(--type-display); }
+h2 { font-size: var(--type-heading); }
+h3 { font-size: var(--type-editorial); }
+h4, h5, h6 { font-size: var(--type-body); }
 
 main h2 {
   margin-top: var(--space-section);
@@ -53,7 +62,7 @@ p, ul, ol { margin-bottom: var(--space-small); }
 
 /* 3. Links and keyboard focus. Underlines make links clear without colour. */
 a {
-  color: var(--forest);
+  color: var(--link);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -99,8 +108,8 @@ a:hover {
 
 .navbar .navbar-brand {
   color: var(--forest);
-  font-family: "Work Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: clamp(0.875rem, 3.5vw, 1.0625rem);
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+  font-size: var(--type-body);
   font-weight: 500;
   white-space: nowrap;
   margin-right: 0;
@@ -113,9 +122,17 @@ a:hover {
   .navbar .navbar-nav .nav-item:last-child .nav-link { padding-right: 0; }
 }
 .navbar .nav-link {
-  color: var(--forest);
-  font-size: 1rem;
-  padding: 0.65rem 0.8rem;
+  color: var(--link);
+  font-size: var(--type-small);
+  padding: 0.65rem 0;
+}
+
+.navbar .navbar-nav {
+  gap: 1.25rem;
+}
+
+.navbar .nav-link .menu-text {
+  position: relative;
 }
 
 .navbar .nav-link:hover,
@@ -123,6 +140,30 @@ a:hover {
   color: var(--forest-dark);
   text-decoration: underline;
   text-underline-offset: 0.3em;
+}
+
+.navbar a[href*="substack"] .menu-text::after,
+.navbar a[href$="cv.pdf"] .menu-text::after,
+.nav-footer a[href^="http"] p::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.3em;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.navbar a[href*="substack"] .menu-text::after,
+.navbar a[href$="cv.pdf"] .menu-text::after {
+  position: absolute;
+  left: 100%;
+  margin-left: 0.3em;
+  white-space: nowrap;
+}
+
+.navbar a[href*="substack"]:hover .menu-text::after,
+.navbar a[href$="cv.pdf"]:hover .menu-text::after,
+.nav-footer a[href^="http"]:hover p::after {
+  opacity: 1;
 }
 
 .navbar .navbar-toggler {
@@ -162,8 +203,8 @@ main h2[id] {
 /* Available for future page layouts without changing their content now. */
 .content-reading { max-width: var(--content-reading); }
 .content-wide { max-width: var(--content-wide); }
-.meta { color: var(--stone); font-size: 0.9rem; }
-.lede { font-size: 1.2rem; }
+.meta { color: var(--stone); font-size: var(--type-small); }
+.lede { font-size: var(--type-editorial); }
 hr, .section-rule {
   border: 0;
   border-top: 1px solid var(--rule);
@@ -178,11 +219,15 @@ hr, .section-rule {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
-  gap: clamp(2.5rem, 8vw, 8rem);
-  align-items: end;
-  min-height: clamp(30rem, 70vh, 46rem);
-  padding-block: clamp(4rem, 10vw, 8rem) var(--space-major);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: var(--space-major);
 }
 
 .hero-identity,
@@ -190,21 +235,99 @@ hr, .section-rule {
   min-width: 0;
 }
 
+.hero-identity {
+  align-self: end;
+  justify-self: start;
+  padding-top: 0;
+  transform: translateX(-4rem);
+}
+
+.hero-portrait {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: visible;
+}
+
+.hero-portrait p {
+  margin: 0;
+  height: 100%;
+}
+
+.hero-portrait-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.hero-portrait .hero-name {
+  position: absolute;
+  right: auto;
+  top: 3%;
+  left: -0.72em;
+  z-index: 1;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: var(--forest);
+  background: transparent;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transform: translateX(-57px);
+}
+
+.hero-dropcap {
+  display: inline-block;
+  font-size: 1.35em;
+  line-height: 0.7;
+  margin-right: -0.08em;
+  letter-spacing: 0;
+  transform: translateX(-12px) scale(1.18);
+  transform-origin: left bottom;
+  vertical-align: baseline;
+}
+
+.hero-name-rest {
+  display: inline-block;
+  padding: 0.08em 0.22em 0.12em;
+  color: var(--forest);
+  background: transparent;
+  text-shadow: 0 0 0.18em rgba(245, 242, 233, 0.8);
+}
+
+.hero-introduction {
+  align-self: end;
+  justify-self: end;
+  max-width: 30rem;
+  padding-bottom: 0;
+  text-align: right;
+  transform: translateX(-4rem);
+}
+
 .eyebrow {
   margin-bottom: var(--space-small);
   color: var(--stone);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.82rem;
+  font-size: var(--type-body);
   line-height: 1.4;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .hero-name {
-  max-width: 10ch;
+  max-width: 11ch;
   margin: 0;
   color: var(--forest);
-  font-size: clamp(3.5rem, 7.5vw, 6.75rem);
+  font-size: var(--type-display);
   line-height: 0.95;
   letter-spacing: -0.035em;
 }
@@ -212,14 +335,17 @@ hr, .section-rule {
 .hero-affiliation {
   margin-bottom: var(--space-medium);
   color: var(--stone);
-  font-size: 0.95rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--type-small);
+  letter-spacing: 0.08em;
   line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .hero-positioning {
-  margin-bottom: var(--space-medium);
+  margin-bottom: 0;
   font-family: Newsreader, Georgia, "Times New Roman", serif;
-  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  font-size: var(--type-editorial);
   line-height: 1.2;
 }
 
@@ -232,8 +358,103 @@ hr, .section-rule {
   max-width: var(--content-reading);
   margin-block: var(--space-medium) var(--space-section);
   font-family: Newsreader, Georgia, "Times New Roman", serif;
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: var(--type-editorial);
   line-height: 1.35;
+}
+
+.hero-welcome {
+  max-width: 900px;
+  margin: 0.5rem auto var(--space-section);
+  padding-right: 4rem;
+  box-sizing: border-box;
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+  font-size: var(--type-body);
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.hero-welcome a {
+  color: var(--link);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--type-small);
+  text-decoration: none;
+}
+
+.hero-welcome a:hover {
+  color: var(--forest-dark);
+  text-decoration: underline;
+}
+
+.research-writing-grid {
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.35fr) minmax(0, 0.65fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.research-column,
+.speaking-column {
+  min-width: 0;
+}
+
+.research-visual {
+  position: relative;
+  width: min(100%, 16rem);
+  margin: 1.75rem 0 calc(var(--space-medium) + 12px);
+  padding-top: 0;
+}
+
+.research-placeholder {
+  margin: 1rem 0 0;
+  padding: 0;
+  color: var(--ink);
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+  font-size: var(--type-body);
+  line-height: 1.2;
+  text-align: left;
+}
+
+.research-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.research-image-caption {
+  position: absolute;
+  right: 0.75rem;
+  bottom: calc(var(--space-medium) + 1.75rem);
+  left: 0.75rem;
+  padding: 0.5rem 0.65rem;
+  color: var(--ivory);
+  background: rgba(32, 40, 34, 0.65);
+  border: 1px solid var(--rule);
+  border-radius: 0.65rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(32, 40, 34, 0.14);
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+  font-size: var(--type-detail);
+  line-height: 1.3;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.research-image-caption::after {
+  content: "";
+  position: absolute;
+  bottom: -0.45rem;
+  left: 1.25rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: rgba(32, 40, 34, 0.65);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transform: rotate(45deg);
+}
+
+.research-visual:hover .research-image-caption,
+.research-visual:focus-within .research-image-caption {
+  opacity: 1;
 }
 
 .editorial-list {
@@ -249,8 +470,114 @@ hr, .section-rule {
   max-width: 32ch;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-size: var(--type-editorial);
   line-height: 1.3;
+}
+
+#about h4 {
+  margin-top: 0.75rem;
+  margin-bottom: var(--space-small);
+  color: var(--stone);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--type-small);
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+#about > p {
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  margin-bottom: var(--space-medium);
+}
+
+.about-intro-column {
+  min-width: 0;
+}
+
+.about-intro-grid p {
+  margin: 0 0 1.25rem;
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+  text-align: justify;
+}
+
+.about-intro-grid p:last-child {
+  margin-bottom: 0;
+}
+
+#education li {
+  color: var(--stone);
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+  font-size: var(--type-body);
+  line-height: 1.7;
+}
+
+#education ul {
+  list-style-type: "-  ";
+  padding-left: 1.25rem;
+}
+
+.speaking-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.speaking-table td {
+  padding: 0.65rem 0.5rem 0.65rem 0;
+  border: 0;
+  white-space: nowrap;
+}
+
+.speaking-table td:first-child {
+  width: 6rem;
+  color: var(--link);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--type-small);
+}
+
+.speaking-table td:nth-child(2) {
+  width: 14rem;
+  min-width: 0;
+  padding-right: 1.5rem;
+  color: var(--clay);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--type-small);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.speaking-table td:nth-child(3) {
+  width: auto;
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+  font-size: var(--type-small);
+}
+
+.speaking-list > p:first-child {
+  margin-bottom: var(--space-medium);
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+}
+
+.speaking-list > table + p {
+  margin-top: var(--space-medium);
+  font-family: Newsreader, Georgia, "Times New Roman", serif;
+}
+
+.speaking-list a {
+  color: var(--link);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--type-small);
+  text-decoration: none;
+}
+
+.speaking-list a:hover {
+  color: var(--forest-dark);
+  text-decoration: underline;
 }
 
 /* 8. Currently — a compact notebook-like status area. */
@@ -275,38 +602,186 @@ hr, .section-rule {
 }
 
 /* 9. Footer — only existing, verified destinations. */
+.footer {
+  width: 100%;
+  padding-inline: 0;
+}
+
 .nav-footer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: baseline;
+  width: calc(100% - 2 * var(--page-gutter));
   max-width: var(--content-wide);
   margin-inline: auto;
-  padding: var(--space-medium) var(--page-gutter);
+  padding: var(--space-medium) 0;
+  box-sizing: border-box;
   color: var(--stone);
   background: var(--paper);
-  font-size: 0.9rem;
+  font-size: var(--type-detail);
   gap: 1rem;
 }
 
+.nav-footer-left,
+.nav-footer-center,
+.nav-footer-right {
+  padding-inline: 0;
+}
+
+.nav-footer-left p,
+.nav-footer-center p,
+.nav-footer a p,
+.nav-footer-right .footer-items {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-footer-right .footer-items {
+  margin-inline: 0;
+}
+
+.nav-footer-center {
+  text-align: center;
+  justify-self: center;
+}
+
+.nav-footer-left {
+  justify-self: start;
+}
+
+.nav-footer-left,
+.nav-footer-left p {
+  display: contents;
+}
+
+.footer-note {
+  display: block;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-bottom: var(--space-small);
+  color: var(--stone);
+  font-size: var(--type-detail);
+  line-height: 1.45;
+  text-align: center;
+}
+
+.footer-made {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.nav-footer-right {
+  justify-self: end;
+  width: 100%;
+}
+
+/* Override Quarto's higher-specificity footer defaults so its visible
+   contents share the header and main-content guides. */
+footer.footer .nav-footer {
+  padding-inline: 0;
+}
+
+footer.footer .nav-footer .nav-footer-left,
+footer.footer .nav-footer .nav-footer-center,
+footer.footer .nav-footer .nav-footer-right {
+  font-size: var(--type-detail);
+}
+
+footer.footer .nav-footer .footer-items .nav-link {
+  padding-inline: 0;
+}
+
+footer.footer .nav-footer-right .footer-items {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
 .nav-footer a {
-  color: var(--forest);
+  color: var(--link);
   text-decoration: none;
   display: inline-block;
-  padding-block: 0.5rem;
+  font-size: var(--type-detail);
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 .nav-footer a:hover {
+  color: var(--forest-dark);
   text-decoration: underline;
 }
 
 /* 10. Responsive refinements for shared elements and the homepage. */
 @media (max-width: 900px) {
+  .hero-welcome {
+    padding-right: 0;
+  }
+
+  .research-writing-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
   .hero {
     grid-template-columns: 1fr;
-    gap: var(--space-section);
+    gap: 0;
+    max-width: none;
     min-height: auto;
     padding-top: var(--space-major);
   }
 
+  .research-placeholder {
+    position: static;
+    width: auto;
+    margin-bottom: var(--space-small);
+    color: var(--ink);
+    text-shadow: none;
+  }
+
+  .research-visual {
+    margin-inline: 0;
+  }
+
   .hero-name {
     max-width: 12ch;
+  }
+
+  .hero-identity,
+  .hero-introduction {
+    padding-block: 0;
+  }
+
+  .hero-identity > .eyebrow {
+    margin-left: calc(max(0px, (100% - 28rem) / 2) + 1.5rem);
+  }
+
+  .hero-identity {
+    justify-self: center;
+    order: 1;
+    transform: none;
+  }
+
+  .hero-introduction {
+    width: min(85%, 23.8rem);
+    margin-inline: auto;
+    justify-self: center;
+    order: 2;
+    transform: translateX(1.5rem);
+  }
+
+  .hero-portrait {
+    max-width: min(28rem, 100%);
+    margin-inline: auto;
+    transform: translateX(1.5rem) scale(0.85);
+    transform-origin: top center;
+  }
+
+  .hero-portrait .hero-name {
+    right: auto;
+    left: -0.72em;
+    font-size: clamp(3rem, 14vw, 5rem);
   }
 }
 
@@ -318,13 +793,14 @@ hr, .section-rule {
     padding-block: var(--space-section) var(--space-major);
   }
   .hero-name {
-    font-size: clamp(3rem, 15vw, 4.6rem);
+    font-size: var(--type-display);
   }
   .currently-grid { grid-template-columns: 1fr; }
   .currently-item { padding-inline: 0; }
-  .nav-footer { flex-direction: column; align-items: flex-start; }
+  .nav-footer { display: flex; flex-direction: column; align-items: flex-start; }
   .nav-footer .nav-footer-left,
   .nav-footer .nav-footer-right { text-align: left; }
+  .speaking-table td { white-space: normal; }
 }
 
 /* 11. Respect the reader's motion preference. */

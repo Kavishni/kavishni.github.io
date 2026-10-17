@@ -298,7 +298,8 @@ Do not use clay for normal text because contrast is insufficient against the mai
 # 6. Typography
 
 Typography should carry most of the site's personality.
-Avoid defaulting to fashionable product-design sans-serifs such as Inter.
+Avoid fashionable product-design sans-serifs such as Inter. Inter should not
+be included as a font choice or fallback anywhere in the site typography.
 
 Use three restrained typographic roles:
 
@@ -340,7 +341,7 @@ Alternative serif fonts may be considered only if they preserve this quality.
 ## Sans-serif
 
 Preferred:
-font to be decided
+**Work Sans**, with a system sans-serif fallback.
 Use for:
 
 - body copy;
@@ -348,11 +349,21 @@ Use for:
 - metadata;
 - paper details;
 - dates;
-- links;
+- links outside the homepage's primary editorial content;
 - buttons;
 - captions.
 
 The serif/sans contrast should create the site's academic-editorial identity.
+
+### Link typography exception
+
+Links outside the homepage's primary editorial content may use a restrained
+system monospace face to give utility links, metadata and small navigational
+details a personal-web character.
+
+Homepage content links should remain in the site's regular sans-serif or
+editorial text face. They should not be rendered in monospace merely because
+they are links.
 
 ---
 
@@ -419,19 +430,26 @@ Avoid extensive card grids.
 
 # 8. Navigation
 
+The first version of the site is primarily a single-scroll homepage. The
+homepage contains the main Hero, Research, Currently and About sections, with
+navigation links scrolling to those sections. Speaking and Reading remain
+part of the broader site structure and can be surfaced as standalone pages
+when verified content is available.
+
 Desktop navigation:
 
 **Kavishni Nanayakkara** at left, linking to homepage.
 
 Right-side navigation:
 
+- About Me
 - Research
-- Writing
 - Speaking
-- Reading
-- About
+- Writing
+- Vitae
+- Digital Garden
 
-Optional small CV link may eventually appear separately.
+The Vitae link may point to a CV PDF when one is added.
 
 Do not include a visible **Home** navigation item.
 
@@ -928,7 +946,7 @@ Suggested source structure:
 ├── _brand.yml
 ├── styles.css
 ├── index.qmd
-├── research.qmd
+├── digital-garden.qmd
 ├── writing.qmd
 ├── speaking.qmd
 ├── reading.qmd
@@ -949,6 +967,11 @@ Do not introduce unnecessary build tools.
 Do not add React, Vue, Svelte, Node-based frontend frameworks, or a JavaScript package manager.
 
 The site should remain fundamentally a **Quarto static website**.
+
+The initial implementation should favour a single-scroll homepage over
+duplicating empty sections across multiple pages. Standalone Speaking,
+Reading and other pages should be introduced when they provide enough
+verified content to justify them.
 
 ---
 
@@ -1037,6 +1060,11 @@ Suggested sections:
 16. Reduced-motion rules
 17. Accessibility utilities
 ```
+
+Global link styling should distinguish between homepage editorial links and
+utility links elsewhere in the site. Monospace styling belongs on selected
+utility links, metadata and compact interface details; it should not be
+applied globally to every homepage link.
 
 Avoid excessive `!important`.
 
@@ -1334,6 +1362,11 @@ The implementation is successful when:
 - mobile presentation feels intentional;
 - the site remains recognisably Quarto in maintainability but not visually like a default Quarto template;
 - future research papers, writing, talks and reading entries can be added without redesigning the site.
+- the initial public experience works as a coherent single-scroll homepage;
+- homepage editorial links retain the regular site text treatment;
+- monospace link styling is limited to selected utility links outside the
+  homepage's primary editorial content;
+- Inter is not used as a font or fallback.
 
 ---
 

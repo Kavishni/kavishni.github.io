@@ -13,16 +13,26 @@ website:
     foreground: dark
     pinned: true
     right:
+      - href: "#about"
+        text: "&#91;About Me&#93;"
       - href: "#research"
         text: "&#91;Research&#93;"
-      # Writing remains on Substack; other links jump to homepage sections.
+      - href: "#speaking"
+        text: "&#91;Speaking&#93;"
+      # Writing remains on Substack because there are no local writing entries.
       - text: "&#91;Writing&#93;"
         href: https://kavishni.substack.com/
-      - href: "#about"
-        text: "&#91;About&#93;"
+      # Placeholder destination for the CV PDF.
+      - text: "&#91;Vitae&#93;"
+        href: cv.pdf
+      - href: digital-garden.qmd
+        text: "&#91;Digital Garden&#93;"
   page-footer:
     border: false
-    left: "Kavishni Nanayakkara · Economics Researcher"
+    left: |
+      <span class="footer-note">All work is cited and attributed. Unattributed images and ideas are mine. I had Codex help me wrangle with the code for this site, but the design is by yours truly.<br>I do not outsource my thinking to AI.</span>
+      <span class="footer-made">Made with Quarto</span>
+    center: "<span class=\"footer-updated\">Updated</span>"
     right:
       - text: "[Substack]"
         href: https://kavishni.substack.com/
@@ -38,6 +48,8 @@ format:
       - brand
     css: styles.css
     toc: false
+    anchor-sections: false
+    include-after-body: footer-script.html
     grid:
       body-width: 1200px
       sidebar-width: 0px

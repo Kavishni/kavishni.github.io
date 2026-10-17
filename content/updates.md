@@ -6,4 +6,4 @@
 
 
 ### September
-WoMAEn Fireside chat Moderator and Event Host
+WoMAEn Fireside Chat — moderator and event host.

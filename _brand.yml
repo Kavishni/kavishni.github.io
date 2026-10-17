@@ -6,6 +6,7 @@ color:
     ink: "#202822"
     forest: "#355244"
     forest-dark: "#243B31"
+    link: "#4F705C"
     stone: "#5F625D"
     sage: "#AEBBAA"
     clay: "#B86F52"
@@ -13,7 +14,7 @@ color:
   foreground: ink
   primary: forest
   secondary: stone
-  link: forest
+  link: link
 
 # Local fonts only: no external font service or additional downloads.
 typography:

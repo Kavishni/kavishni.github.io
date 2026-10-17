@@ -1,7 +1,7 @@
 # Research Source
 
 ## Research overview
-see profile.md
+I explore the intersection of AI and behavioural/health economics with data.
 
 ## Research interests
 - Behavioural economics and wellbeing

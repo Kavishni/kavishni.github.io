@@ -1,8 +1,0 @@
----
-title: "Research"
-include-in-header:
-  text: |
-    <meta http-equiv="refresh" content="0; url=./index.html#research">
----
-
-[Continue to the Research section](index.qmd#research).

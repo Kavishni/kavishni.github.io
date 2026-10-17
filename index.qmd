@@ -13,69 +13,116 @@ include-after-body:
       const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
       if (target) link.setAttribute('href', url.hash);
     });
+
+    const heroPhoto = document.querySelector('.hero-portrait-image');
+    if (heroPhoto) {
+      const isOverHeroPhoto = (event) => {
+        const bounds = heroPhoto.getBoundingClientRect();
+        return event.clientX >= bounds.left && event.clientX <= bounds.right &&
+          event.clientY >= bounds.top && event.clientY <= bounds.bottom;
+      };
+
+      document.addEventListener('dragstart', (event) => {
+        if (event.target === heroPhoto || isOverHeroPhoto(event)) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }, true);
+
+      document.addEventListener('pointerdown', (event) => {
+        if (isOverHeroPhoto(event)) event.preventDefault();
+      }, true);
+
+      document.addEventListener('contextmenu', (event) => {
+        if (isOverHeroPhoto(event)) event.preventDefault();
+      }, true);
+    }
     </script>
 ---
 
 ::: {.hero}
-::: {.hero-identity}
-<p class="eyebrow">Economics Researcher</p>
-
-# Kavishni Nanayakkara {#hero-title .hero-name}
-:::
-
 ::: {.hero-introduction}
-<p class="hero-affiliation">Nanyang Technological University, Singapore</p>
+<p class="hero-affiliation"><span class="hero-role">Economics Researcher</span><br><span class="hero-institution">@ NTU Singapore</span></p>
 
-<p class="hero-positioning">Exploring AI and human behaviour in the context of economics.</p>
+<p class="hero-positioning">I explore<br>the intersection of AI,<br>behavioural economics,<br>and wellbeing.</p>
+:::
+
+::: {.hero-identity}
+<p class="eyebrow">Hello, I'm</p>
+
+::: {.hero-portrait}
+<img class="hero-portrait-image" src="images/personal/profilephoto.jpg" alt="Portrait of Kavishni Nanayakkara" draggable="false" oncontextmenu="return false;" ondragstart="return false;">
+<h1 id="hero-title" class="hero-name"><span class="hero-dropcap">K</span><span class="hero-name-rest">avishni.</span></h1>
+:::
+:::
+:::
+
+::: {.hero-welcome}
+Welcome to my corner of the web. Do scroll down to check out my portfolio. [\[Writing\]](https://kavishni.substack.com/) and [\[Vitae\]](cv.pdf) link out to my Substack and CV respectively. If you have more time to explore, head over to my [\[Digital Garden\]](digital-garden.qmd) to decompress and have some fun.
+:::
+
+## About Me {#about}
+
+::: {.about-intro-grid}
+::: {.about-intro-column}
+Hi again! My name is Kavishni (pronounced KAH-vish-nee). I'm a Research Assistant with NTU School of Social Sciences. My research is advised by Prof Nick Powdthavee & Assoc Prof Wang Wenjie.
+
+I'm interested in the [human] side of
+things; how AI, economics and other fun stuff impact our [human] behaviour,
+decision-making and wellbeing.
+
+Before this, I worked in Biomechanics R&D at NTU School of Mechanical and Aerospace Engineering. I designed, optimized and tested biomechanical devices to aid SG Orthopedic surgeons better the lives of their patients.
+
+:::
+
+::: {.about-intro-column}
+I graduated from the NTU double degree program in Mechanical Engineering and Economics. Back then I have explored a number of industries by interning as an engineer at a biomedical startup, a product manager at a B2B fintech firm, and doing PEP research at LSEG WorldCheck.
+
+#### Education
+
+- Bachelor of Engineering (Honours) in Mechanical Engineering, NTU
+- Bachelor of Social Sciences (Honours) in Economics, NTU
+
+I'm originally from Sri Lanka, now based in Singapore. Outside of work, I love tending to my digital garden, volunteering, writing, public speaking, and
+building communities that bring people together.
 :::
 :::
 
+::: {.research-writing-grid}
+
+::: {.research-column}
 ## Research {#research}
 
-::: {.section-introduction}
-My research interests sit at the intersection of economics, technology,
-behaviour and wellbeing.
+::: {.research-visual}
+<img src="images/research/study-desk-pixel-art.png" alt="Pixel-art illustration of a sunlit study desk with notes, laptops and stationery.">
+<span class="research-image-caption">Sunlit study spot in NIE library, NTU SG</span>
+<p class="research-placeholder">Something is brewing here... Check back later :)</p>
 :::
 
-::: {.editorial-list .research-interest-list}
-::: {.editorial-item}
-### Behavioural economics and wellbeing
 :::
 
-::: {.editorial-item}
-### AI, labour markets, and the future of work
+::: {.speaking-column}
+## Speaking {#speaking}
+
+::: {.editorial-list .speaking-list}
+I've been developing my public speaking skills recently! Here are some of my recent events.
+
+<table class="speaking-table">
+<tbody>
+<tr><td>Sep 2026</td><td>Moderator/Event Host</td><td>WoMAEn in Dialogue: Lead with Confidence series #2</td></tr>
+<tr><td>Aug 2026</td><td>Panel Moderator/Event Host</td><td>ResearcHER Connect with MathWorks</td></tr>
+<tr><td>Jun 2026</td><td>Event Co-host</td><td>Generalist World SG Event</td></tr>
+<tr><td>Mar 2026</td><td>Moderator/Event Host</td><td>WoMAEn in Dialogue: Lead with Confidence series #1</td></tr>
+<tr><td>Feb 2026</td><td>Event Co-host</td><td>Generalist World SG Event</td></tr>
+</tbody>
+</table>
+
+Do reach out to me via [\[LinkedIn\]](https://www.linkedin.com/in/kavishni/) if you'd like to have me as your host.
 :::
 
-::: {.editorial-item}
-### Mental health and subjective wellbeing
 :::
 
-::: {.editorial-item}
-### Human behaviour and decision-making
 :::
-:::
-
-<!-- Selected research projects will be added only when verified project
-information is available in content/research.md. -->
 
 <!-- Selected writing is omitted because content/writing.md has no entries. -->
 
-## Currently {#currently}
-
-::: {.currently-grid}
-::: {.currently-item}
-<p class="meta">Researching</p>
-
-AI and Human Behaviour
-:::
-
-::: {.currently-item}
-<p class="meta">Working</p>
-
-Research Assistant at Nanyang Technological University, working on AI and economics.
-:::
-:::
-
-## About {#about}
-
-About this site
