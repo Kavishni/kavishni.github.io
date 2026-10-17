@@ -924,19 +924,22 @@ Mobile should feel deliberately designed rather than like a compressed desktop p
 
 # 21. Quarto Technical Architecture
 
-Preserve the existing deployment model.
+Use a simple GitHub Flow deployment model.
 
 **`main` branch**
 
-contains editable Quarto source.
+contains the approved, editable Quarto source. Each website change should be
+developed on a short-lived branch and merged into `main` through a pull
+request after the `Build website` check passes.
 
-**`gh-pages` branch**
+**GitHub Actions**
 
-contains generated website output.
+renders the Quarto project and deploys the `_site/` artifact to GitHub Pages
+when a pull request is merged into `main`. Pull requests build the site but do
+not deploy it. The rendered website is not committed to a source branch.
 
-Never manually edit `gh-pages`.
-
-Continue publishing through Quarto.
+Do not manually edit or publish to `gh-pages`. It is a legacy deployment
+branch and may be retained only until the Actions deployment has been verified.
 
 Suggested source structure:
 
@@ -1396,9 +1399,6 @@ Where information is missing, preserve a clean structure that can be populated l
 
 Preserve the Quarto/GitHub Pages workflow:
 
-**`main` = editable Quarto source**  
-**`gh-pages` = generated published website**
-
-Do not manually modify `gh-pages`.
+**temporary branch → pull request → `main` → GitHub Actions → GitHub Pages**
 
 The completed implementation should prioritise sophisticated typography, clarity, accessibility, restraint, and long-term maintainability over novelty.

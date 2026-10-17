@@ -60,12 +60,17 @@ Prefer:
 
 ## Git and publishing
 
-main = editable Quarto source
-gh-pages = generated published website
+`main` is the approved, editable Quarto source.
 
-Never manually modify gh-pages.
+Create a short-lived branch for each change, open a pull request into `main`,
+and merge it after the `Build website` check passes. A merge to `main`
+automatically renders and deploys the site through GitHub Actions.
 
-Do not run `quarto publish gh-pages` unless I explicitly ask you to publish.
+GitHub Pages is configured to use the GitHub Actions deployment. The rendered
+site is uploaded as a deployment artifact; it is not committed to a branch.
+
+Do not manually modify or publish to `gh-pages`. The old branch may be kept as
+a migration backup until the Actions deployment has been verified.
 
 ## Content integrity
 
