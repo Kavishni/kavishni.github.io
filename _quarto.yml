@@ -1,29 +1,57 @@
 project:
   type: website
+  # Render website pages, not repository instructions or design documents.
+  render:
+    - "*.qmd"
 
 website:
-  title: "Kavishni N"
+  title: "Kavishni Nanayakkara"
+  site-url: https://kavishni.github.io
+  search: false
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: research.qmd
-        text: Research
-      - href: about.qmd
-        text: About
+    background: light
+    foreground: dark
+    pinned: true
     right:
-      - text: Writing
+      - href: "#about"
+        text: "&#91;About Me&#93;"
+      - href: "#research"
+        text: "&#91;Research&#93;"
+      - href: "#speaking"
+        text: "&#91;Speaking&#93;"
+      # Writing remains on Substack because there are no local writing entries.
+      - text: "&#91;Writing&#93;"
         href: https://kavishni.substack.com/
-      - text: Subscribe
-        href: https://kavishni.substack.com/subscribe
+      # Placeholder destination for the CV PDF.
+      - text: "&#91;Vitae&#93;"
+        href: cv.pdf
+      - href: digital-garden.qmd
+        text: "&#91;Digital Garden&#93;"
+  page-footer:
+    border: false
+    left: |
+      <span class="footer-note">All work is cited and attributed. Unattributed images and ideas are mine. I had Codex help me wrangle with the code for this site, but the design is by yours truly.<br>I do not outsource my thinking to AI.</span>
+      <span class="footer-made">Made with Quarto</span>
+    center: "<span class=\"footer-updated\">Updated</span>"
+    right:
+      - text: "[Substack]"
+        href: https://kavishni.substack.com/
+      - text: "[GitHub]"
+        href: https://github.com/Kavishni
+      - text: "[LinkedIn]"
+        href: https://www.linkedin.com/in/kavishni/
 
 format:
   html:
     theme:
-      - cosmo
+      - default
       - brand
     css: styles.css
-    toc: true
-
-
-
+    toc: false
+    anchor-sections: false
+    include-after-body: footer-script.html
+    grid:
+      body-width: 1200px
+      sidebar-width: 0px
+      margin-width: 0px
+      gutter-width: 40px

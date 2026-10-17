@@ -1,0 +1,20 @@
+<script>
+  const updateFooterDate = () => {
+    const footerUpdated = document.querySelector('.footer-updated');
+    const lastModified = new Date(document.lastModified);
+
+    if (footerUpdated && !Number.isNaN(lastModified.getTime())) {
+      footerUpdated.textContent = `Updated ${lastModified.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      })}`;
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateFooterDate);
+  } else {
+    updateFooterDate();
+  }
+</script>

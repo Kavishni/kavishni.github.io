@@ -1,0 +1,10 @@
+---
+title: "Digital Garden"
+description: "A space for notes, questions and works in progress."
+---
+
+::: {.section-introduction}
+A space for notes, questions and works in progress.
+:::
+
+No entries yet.

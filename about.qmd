@@ -1,5 +1,8 @@
 ---
 title: "About"
+include-in-header:
+  text: |
+    <meta http-equiv="refresh" content="0; url=./index.html#about">
 ---
 
-About this site
+[Continue to the About section](index.qmd#about).
